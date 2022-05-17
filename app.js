@@ -1,16 +1,17 @@
 const express = require('express')
 const app = express()
 const port = 8080; 
+// Add of engine view using handlebars
+app.set('view engine', 'hbs')
 
-// Serve static content
 app.use(express.static('public'))
 
-app.get('/generic',  (req, res) => {
-  res.sendFile(__dirname + '/public/generic.html')
+app.get('/',  (req, res) => {
+  res.render('home')
 })
 
-app.get('/elements',  (req, res) => {
-  res.sendFile(__dirname + '/public/elements.html')
+app.get('/generic',  (req, res) => {
+  res.render('generic')
 })
 
 app.listen(port, ()=>{
