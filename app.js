@@ -7,12 +7,20 @@ app.set('view engine', 'hbs')
 app.use(express.static('public'))
 
 app.get('/',  (req, res) => {
-  res.render('home')
+  res.render('home', {
+  nombre: 'Damian Perez', 
+  titulo: 'Probando args'
+  })
 })
 
 app.get('/generic',  (req, res) => {
   res.render('generic')
 })
+
+app.get('/elements',  (req, res) => {
+  res.render('elements')
+})
+
 
 app.listen(port, ()=>{
     console.log(`listen at port ${port}`);
